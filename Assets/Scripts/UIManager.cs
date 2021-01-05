@@ -42,8 +42,7 @@ public class UIManager : MonoBehaviour
                 Namelevel.SetActive(true);
                 Namelevel = GameObject.Find("[Interface]/CanvasRoot/loadPanel");
                 Namelevel.SetActive(false);
-                StopAllCoroutines();
-                
+                StopAllCoroutines(); 
             }
         }
     }
@@ -55,10 +54,6 @@ public class UIManager : MonoBehaviour
         Namelevel = GameObject.Find("[Interface]/CanvasRoot/"+ name );
         Namelevel.SetActive(true);
         simpleVariable = name;
-
-
-        _nameUI = null;
-        Debug.Log(simpleVariable);
     }
     
 }
