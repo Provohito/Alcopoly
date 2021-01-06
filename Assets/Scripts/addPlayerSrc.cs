@@ -13,7 +13,11 @@ public class addPlayerSrc : MonoBehaviour
     [SerializeField]
     private GameObject gridlayer;
 
+    
 
+    List<string> playerName = new List<string>();
+
+    
     
     private Text _namePlayer;
     //private int count = 0;
@@ -40,7 +44,7 @@ public class addPlayerSrc : MonoBehaviour
 
     public void Update()
     {
-       
+        
 
     }
 
@@ -50,14 +54,33 @@ public class addPlayerSrc : MonoBehaviour
         if (_namePlayer.text != "" & gridlayer.transform.childCount < 6)
         {
             textprefab.text = _namePlayer.text;
+            playerName.Add(textprefab.text);
             var table = Instantiate(namePrefabBtn);
             table.transform.SetParent(gridlayer.transform,false); 
         }
     }
+   
     public void DestroyObj(GameObject objDeleted)
     {
         
+        // Через PlayerPreffs
+        
+        
+        Text textNamePrefab = objDeleted.transform.Find("namePlayer").gameObject.GetComponent<Text>();
+        
+        for (int i = 0; i < playerName.Count; i++)
+        {
+            Debug.Log(textNamePrefab.text + "wer");
+            Debug.Log(playerName[i] + "tyu");
+            if (textNamePrefab.text == playerName[i])
+            {
+                Debug.Log("win");
+                playerName.RemoveAt(i);
+                
+            }
+        }
         Destroy(objDeleted);
+
     }
     
 }

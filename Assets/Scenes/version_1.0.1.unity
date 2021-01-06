@@ -5072,9 +5072,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: addPlayerPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 2678154288846944507, guid: 5e6957a1eb33d1f458ed42edeae4eb6e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e6957a1eb33d1f458ed42edeae4eb6e, type: 3}
