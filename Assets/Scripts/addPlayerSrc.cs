@@ -13,6 +13,8 @@ public class addPlayerSrc : MonoBehaviour
     [SerializeField]
     private GameObject gridlayer;
 
+
+    
     private Text _namePlayer;
     //private int count = 0;
     public Text namePlayer
@@ -20,7 +22,7 @@ public class addPlayerSrc : MonoBehaviour
         get 
         {
             AddNewPlayer();
-            return namePlayer;    
+            return _namePlayer;    
         }
         set 
         {
@@ -28,6 +30,7 @@ public class addPlayerSrc : MonoBehaviour
            
         }
     }
+    
 
     public void Start()
     {
@@ -37,8 +40,8 @@ public class addPlayerSrc : MonoBehaviour
 
     public void Update()
     {
-        
-        
+       
+
     }
 
     void AddNewPlayer()
@@ -51,4 +54,10 @@ public class addPlayerSrc : MonoBehaviour
             table.transform.SetParent(gridlayer.transform,false); 
         }
     }
+    public void DestroyObj(GameObject objDeleted)
+    {
+        
+        Destroy(objDeleted);
+    }
+    
 }

@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown("f"))
+        if (Input.GetKeyDown("d"))
         {
             StartCoroutine("FirstLoad");
         }
@@ -54,6 +54,7 @@ public class UIManager : MonoBehaviour
         Namelevel = GameObject.Find("[Interface]/CanvasRoot/"+ name );
         Namelevel.SetActive(true);
         simpleVariable = name;
+        _nameUI = null;
     }
     
 }
