@@ -14,17 +14,31 @@ public class sendMessageSrc : MonoBehaviour
     private Text emailPlayer;
     [SerializeField]
     private Text messagePlayer;
+    [SerializeField]
+    private GameObject errorpanel;
 
 
     
     public void SendMessage()
     {
-        string s = "Name: " + namePlayer.text + "\n" + "Email: " + emailPlayer.text + "\n" + "Message: " + messagePlayer.text + "\n" + "Текущее время: " + DateTime.Now + "\n";
-       
-        using (StreamWriter sw = File.AppendText(@"D:\Work\Alcopoly\Assets\Resources\sendNotes.txt"))
+        GameObject ui = GameObject.Find("UIManager");
+        if (namePlayer.text != "" & emailPlayer.text!= "" & messagePlayer.text != "")
         {
-            sw.WriteLine(s);   
+            string s = "Name: " + namePlayer.text + "\n" + "Email: " + emailPlayer.text + "\n" + "Message: " + messagePlayer.text + "\n" + "Текущее время: " + DateTime.Now + "\n";
+
+            using (StreamWriter sw = File.AppendText(@"D:\Work\Alcopoly\Assets\Resources\sendNotes.txt"))
+            {
+                sw.WriteLine(s);
+            }
+            
+            ui.GetComponent<UIManager>().nameUI = "addPlayerPanel";
+            // отправка не мменяет сцену из-за simple///
         }
+        else
+        {
+            ui.GetComponent<UIManager>().nameUI = "errorPanelsend";
+        }
+        
     }
 
 }

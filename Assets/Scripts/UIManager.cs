@@ -22,8 +22,8 @@ public class UIManager : MonoBehaviour
         get {return _nameUI;}
         set { _nameUI = value;}
     }
-
-    string simpleVariable;
+    [HideInInspector]
+    public string simpleVariable;
 
     
     
@@ -59,6 +59,8 @@ public class UIManager : MonoBehaviour
 
     void NextLevel(string name)
     {
+        Debug.Log(simpleVariable + " Прошлая");
+        Debug.Log(name + " настоящая");
         GameObject Namelevel = GameObject.Find("[Interface]/CanvasRoot/" + simpleVariable);
         Namelevel.SetActive(false);
         Namelevel = GameObject.Find("[Interface]/CanvasRoot/"+ name );
@@ -68,8 +70,7 @@ public class UIManager : MonoBehaviour
     }
     
     public void SetValueStruct(string value)
-    {
-        
+    { 
         SaveName(value);
         
     }
