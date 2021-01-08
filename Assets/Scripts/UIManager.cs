@@ -11,11 +11,9 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     
-    
 
-    
-
-    List<string> namePlayer = new List<string>();
+    [HideInInspector]
+    public List<string> namePlayer = new List<string>();
     [SerializeField]
     private Image fillground;
     private string _nameUI;
@@ -78,8 +76,8 @@ public class UIManager : MonoBehaviour
 
     void SaveName(string value)
     {
+        
         namePlayer.Add(value);
-         
     }
 
     public void DeleteName(string value)

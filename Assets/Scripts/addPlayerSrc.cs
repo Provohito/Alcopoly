@@ -54,16 +54,33 @@ public class addPlayerSrc : MonoBehaviour
 
     void AddNewPlayer()
     {
-
+        Debug.Log(_namePlayer.text);
+        GameObject ui = GameObject.Find("UIManager");
+        textprefab.text = _namePlayer.text;
+        var table = Instantiate(namePrefabBtn);
         if (_namePlayer.text != "" & gridlayer.transform.childCount < 6)
         {
-            textprefab.text = _namePlayer.text;
+            if (ui.GetComponent<UIManager>().namePlayer.Count != 0)
+            {
+                for (int i = 0; i < ui.GetComponent<UIManager>().namePlayer.Count; i++)
+                {
+                    if (ui.GetComponent<UIManager>().namePlayer[i] == _namePlayer.text)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        table.transform.SetParent(gridlayer.transform, false);
+                        ui.GetComponent<UIManager>().SetValueStruct(textprefab.text);
+                    }
+                }
+            }
+            else
+            {
+                table.transform.SetParent(gridlayer.transform, false);
+                ui.GetComponent<UIManager>().SetValueStruct(textprefab.text);
+            }
             
-            
-            var table = Instantiate(namePrefabBtn);
-            table.transform.SetParent(gridlayer.transform,false);
-            GameObject ui = GameObject.Find("UIManager");
-            ui.GetComponent<UIManager>().SetValueStruct(textprefab.text);
         }
     }
    
