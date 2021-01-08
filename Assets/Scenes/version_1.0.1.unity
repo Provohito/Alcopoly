@@ -2111,6 +2111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82791392c504c340acff26b7cdd21b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  namePlayer: []
   fillground: {fileID: 187923009}
 --- !u!1 &974259492
 GameObject:
@@ -2415,7 +2416,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1959784713}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2526,6 +2527,7 @@ GameObject:
   - component: {fileID: 1141839593}
   - component: {fileID: 1141839595}
   - component: {fileID: 1141839594}
+  - component: {fileID: 1141839596}
   m_Layer: 5
   m_Name: sendBtn
   m_TagString: Untagged
@@ -2545,7 +2547,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1959784713}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2590,6 +2592,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141839592}
   m_CullTransparentMesh: 0
+--- !u!114 &1141839596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141839592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1141839594}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1959784716}
+        m_TargetAssemblyTypeName: sendMessageSrc, Assembly-CSharp
+        m_MethodName: SendMessage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 854471408}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: set_nameUI
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: addPlayerPanel
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1184408711
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,7 +2875,7 @@ RectTransform:
   m_Children:
   - {fileID: 203503348}
   m_Father: {fileID: 1959784713}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3254,7 +3323,7 @@ RectTransform:
   m_Children:
   - {fileID: 798748836}
   m_Father: {fileID: 1959784713}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3748,7 +3817,7 @@ GameObject:
   - component: {fileID: 1613170908}
   - component: {fileID: 1613170907}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TopText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4359,7 +4428,7 @@ RectTransform:
   m_Children:
   - {fileID: 837049943}
   m_Father: {fileID: 1959784713}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4553,6 +4622,7 @@ GameObject:
   - component: {fileID: 1959784713}
   - component: {fileID: 1959784715}
   - component: {fileID: 1959784714}
+  - component: {fileID: 1959784716}
   m_Layer: 5
   m_Name: sendMessagePanel
   m_TagString: 7
@@ -4572,11 +4642,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1613170906}
+  - {fileID: 1246442614}
+  - {fileID: 1407042955}
   - {fileID: 1864922106}
   - {fileID: 1140319386}
   - {fileID: 1141839593}
-  - {fileID: 1407042955}
-  - {fileID: 1246442614}
   m_Father: {fileID: 1202887474}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4623,6 +4693,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959784712}
   m_CullTransparentMesh: 0
+--- !u!114 &1959784716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959784712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c6ae955140a524b991bd4d1de6722e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namePlayer: {fileID: 203503349}
+  emailPlayer: {fileID: 798748837}
+  messagePlayer: {fileID: 837049944}
 --- !u!1 &1987376342
 GameObject:
   m_ObjectHideFlags: 0
@@ -4984,10 +5069,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 854471408}
-    - target: {fileID: 381964182, guid: 5e6957a1eb33d1f458ed42edeae4eb6e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DebugErt
-      objectReference: {fileID: 0}
     - target: {fileID: 1571352104911343795, guid: 5e6957a1eb33d1f458ed42edeae4eb6e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5076,13 +5157,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2678154288846944505, guid: 5e6957a1eb33d1f458ed42edeae4eb6e, type: 3}
-      propertyPath: uiManager
-      value: 
-      objectReference: {fileID: 854471406}
     - target: {fileID: 2678154288846944507, guid: 5e6957a1eb33d1f458ed42edeae4eb6e, type: 3}
       propertyPath: m_Name
       value: addPlayerPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678154288846944507, guid: 5e6957a1eb33d1f458ed42edeae4eb6e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e6957a1eb33d1f458ed42edeae4eb6e, type: 3}

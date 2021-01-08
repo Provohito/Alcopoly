@@ -120,7 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 735052180817919260, guid: d4954ee7e04e1e04ca08447b79686273, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: DebugErt
         m_Mode: 1
@@ -1088,7 +1088,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   namePrefabBtn: {fileID: 1892491315364080512, guid: 0f7302559b7b6ef4ea2d5a6bdbee8ea7, type: 3}
   gridlayer: {fileID: 2678154288550279554}
-  uiManager: {fileID: 0}
 --- !u!1 &2678154288875712029
 GameObject:
   m_ObjectHideFlags: 0
