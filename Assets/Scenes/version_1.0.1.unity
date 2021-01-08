@@ -4980,6 +4980,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 854471408}
+    - target: {fileID: 381964182, guid: 5e6957a1eb33d1f458ed42edeae4eb6e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 854471408}
+    - target: {fileID: 381964182, guid: 5e6957a1eb33d1f458ed42edeae4eb6e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DebugErt
+      objectReference: {fileID: 0}
     - target: {fileID: 1571352104911343795, guid: 5e6957a1eb33d1f458ed42edeae4eb6e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5068,6 +5076,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2678154288846944505, guid: 5e6957a1eb33d1f458ed42edeae4eb6e, type: 3}
+      propertyPath: uiManager
+      value: 
+      objectReference: {fileID: 854471406}
     - target: {fileID: 2678154288846944507, guid: 5e6957a1eb33d1f458ed42edeae4eb6e, type: 3}
       propertyPath: m_Name
       value: addPlayerPanel

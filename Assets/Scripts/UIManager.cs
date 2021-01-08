@@ -1,10 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
+
+
 public class UIManager : MonoBehaviour
 {
+    
+    
+
+    
+
+    List<string> namePlayer = new List<string>();
     [SerializeField]
     private Image fillground;
     private string _nameUI;
@@ -16,6 +27,7 @@ public class UIManager : MonoBehaviour
 
     string simpleVariable;
 
+    
     
     void Update()
     {
@@ -57,4 +69,39 @@ public class UIManager : MonoBehaviour
         _nameUI = null;
     }
     
+    public void SetValueStruct(string value)
+    {
+        
+        SaveName(value);
+        
+    }
+
+    void SaveName(string value)
+    {
+        namePlayer.Add(value);
+         
+    }
+
+    public void DeleteName(string value)
+    {
+        for (int i = 0; i < namePlayer.Count; i++)
+        {
+            if (namePlayer[i] == value)
+            {
+                namePlayer.Remove(value);
+            }
+        }
+    }
+    
+    public void DebugErt()
+    {
+        for (int i = 0; i < namePlayer.Count; i++)
+        {
+            
+            Debug.Log(namePlayer[i]);
+        }
+    }
+    
 }
+
+

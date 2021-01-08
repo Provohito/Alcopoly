@@ -15,7 +15,10 @@ public class addPlayerSrc : MonoBehaviour
 
     
 
-    List<string> playerName = new List<string>();
+    
+
+
+   
 
     
     
@@ -39,6 +42,7 @@ public class addPlayerSrc : MonoBehaviour
     public void Start()
     {
         textprefab = namePrefabBtn.transform.Find("namePlayer").gameObject.GetComponent<Text>();
+
         
     }
 
@@ -54,31 +58,21 @@ public class addPlayerSrc : MonoBehaviour
         if (_namePlayer.text != "" & gridlayer.transform.childCount < 6)
         {
             textprefab.text = _namePlayer.text;
-            playerName.Add(textprefab.text);
+            
+            
             var table = Instantiate(namePrefabBtn);
-            table.transform.SetParent(gridlayer.transform,false); 
+            table.transform.SetParent(gridlayer.transform,false);
+            GameObject ui = GameObject.Find("UIManager");
+            ui.GetComponent<UIManager>().SetValueStruct(textprefab.text);
         }
     }
    
     public void DestroyObj(GameObject objDeleted)
     {
-        
-        // Через PlayerPreffs
-        
-        
         Text textNamePrefab = objDeleted.transform.Find("namePlayer").gameObject.GetComponent<Text>();
-        
-        for (int i = 0; i < playerName.Count; i++)
-        {
-            Debug.Log(textNamePrefab.text + "wer");
-            Debug.Log(playerName[i] + "tyu");
-            if (textNamePrefab.text == playerName[i])
-            {
-                Debug.Log("win");
-                playerName.RemoveAt(i);
-                
-            }
-        }
+
+        GameObject ui = GameObject.Find("UIManager");
+        ui.GetComponent<UIManager>().DeleteName(textNamePrefab.text);
         Destroy(objDeleted);
 
     }
