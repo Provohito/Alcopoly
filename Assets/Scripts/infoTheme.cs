@@ -16,7 +16,7 @@ public class infoTheme : MonoBehaviour
     public GameObject qwe;
     public GameObject ewq;
     
-    public void Chadfsa(Infosrc info)
+    public void Chadfsa()
     {
         switch (info)
         {
