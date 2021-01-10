@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,9 +25,11 @@ public class UIManager : MonoBehaviour
     }
     [HideInInspector]
     public string simpleVariable;
-
-    
-    
+    //блок выбора темы
+    [HideInInspector]
+    public List<string> questions = new List<string>();
+    string path = @"D:\Work\Alcopoly\Assets\Resources\";
+    string nameTheme;
     void Update()
     {
         if (Input.GetKeyDown("d"))
@@ -100,7 +103,38 @@ public class UIManager : MonoBehaviour
             Debug.Log(namePlayer[i]);
         }
     }
-    
+
+    public void WriteText(string value)
+    {
+        nameTheme = value;
+        using (StreamReader sr = new StreamReader(path + value + ".txt", System.Text.Encoding.Default))
+        {
+            string line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                Console.WriteLine(line);
+                questions.Add(line);
+                Debug.Log(line);
+
+            }
+        }
+        Debug.Log(questions.Count);
+    }
+
+    public void wqe()
+    {
+        for (int i = 0; i < questions.Count; i++)
+        {
+            Debug.Log(questions[i]);
+        }
+    }   
+    public void ClearList()
+    {
+        for (int i = 0; i < questions.Count; i++)
+        {
+            questions.RemoveAt(i);
+        }
+    }
 }
 
 
