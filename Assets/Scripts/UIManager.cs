@@ -30,6 +30,19 @@ public class UIManager : MonoBehaviour
     public List<string> questions = new List<string>();
     string path = @"D:\Work\Alcopoly\Assets\Resources\";
     string nameTheme;
+
+    List<string> firstListLoad = new List<string>();
+    [SerializeField]
+    public Text firstLoadText;
+    
+
+    public void Start()
+    {
+        LoadFirstText();
+        
+
+    }
+
     void Update()
     {
         if (Input.GetKeyDown("d"))
@@ -95,13 +108,21 @@ public class UIManager : MonoBehaviour
         }
     }
     
-    public void DebugErt()
+    private void LoadFirstText()
     {
-        for (int i = 0; i < namePlayer.Count; i++)
+        
+        using (StreamReader sr = new StreamReader(@"D:\Work\Alcopoly\Assets\Resources\advice.txt", System.Text.Encoding.Default))
         {
-            
-            Debug.Log(namePlayer[i]);
+            string line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                Console.WriteLine(line);
+                firstListLoad.Add(line);
+                Debug.Log(line);
+
+            }
         }
+        firstLoadText.text = firstListLoad[UnityEngine.Random.Range(0, firstListLoad.Count)];
     }
 
     public void WriteText(string value)
