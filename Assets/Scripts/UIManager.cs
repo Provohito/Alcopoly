@@ -123,9 +123,9 @@ public class UIManager : MonoBehaviour
 
     public void wqe()
     {
-        for (int i = 0; i < questions.Count; i++)
+        for (int i = 0; i < namePlayer.Count; i++)
         {
-            Debug.Log(questions[i]);
+            Debug.Log(namePlayer[i]);
         }
     }   
     public void ClearList()

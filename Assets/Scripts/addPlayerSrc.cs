@@ -72,6 +72,7 @@ public class addPlayerSrc : MonoBehaviour
                     {
                         table.transform.SetParent(gridlayer.transform, false);
                         ui.GetComponent<UIManager>().SetValueStruct(textprefab.text);
+                        return;
                     }
                 }
             }
