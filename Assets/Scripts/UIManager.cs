@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Image fillground;
     private string _nameUI;
+
+    
     public string nameUI
     {
         get {return _nameUI;}
@@ -41,10 +43,17 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject attentionWindowTheme;
 
+    [HideInInspector]
+    public GameObject[] allThemes;
+
+    [SerializeField]
+    private GameObject chooseThemePanel;
     public void Start()
     {
         LoadFirstText();
         StartCoroutine("FirstLoad");
+        
+        
 
     }
 
@@ -151,7 +160,7 @@ public class UIManager : MonoBehaviour
     private void LoadFirstText()
     {
         // D:\Work\Alcopoly-main
-        using (StreamReader sr = new StreamReader(@"D:\Work\Alcopoly-main\Assets\Resources\advice.txt", System.Text.Encoding.Default))
+        using (StreamReader sr = new StreamReader(@"D:\Work\Alcopoly\Assets\Resources\advice.txt", System.Text.Encoding.Default))
         {
             string line;
             while ((line = sr.ReadLine()) != null)
@@ -180,7 +189,7 @@ public class UIManager : MonoBehaviour
 
             }
         }
-        Debug.Log(questions.Count);
+        
     }
 
     public void wqe()
@@ -192,11 +201,17 @@ public class UIManager : MonoBehaviour
     }   
     public void ClearList()
     {
-        for (int i = 0; i < questions.Count; i++)
-        {
-            questions.RemoveAt(i);
-        }
+        questions.RemoveRange(0, questions.Count);
+        Debug.Log(questions.Count);
+        
+       
+        chooseThemePanel.GetComponent<chooseThemeSrc>().isReset = true;
+        
+        
+        
     }
+
+    
 }
 
 
