@@ -31,10 +31,15 @@ public class UIManager : MonoBehaviour
     string path = @"D:\Work\Alcopoly\Assets\Resources\";
     string nameTheme;
 
+    [SerializeField]
+    private GameObject attentionWindowQuestions;
+
     List<string> firstListLoad = new List<string>();
     [SerializeField]
     public Text firstLoadText;
-    
+
+    [SerializeField]
+    private GameObject attentionWindowTheme;
 
     public void Start()
     {
@@ -50,6 +55,45 @@ public class UIManager : MonoBehaviour
         {
             NextLevel(_nameUI);
         }
+        
+    }
+
+    public void CheckFubction(string value)
+    {
+        if (namePlayer.Count != 0 & value == "chooseTheme")
+        {
+            nameUI = value;
+            StopAllCoroutines();
+            Debug.Log("questions");
+        }
+        else if (value == "chooseTheme")
+        {
+            StartCoroutine(AttentionPanel(attentionWindowQuestions));
+        }
+            
+
+        if (questions.Count != 0 & value == "questionsPanel")
+        {
+            nameUI = value;
+            StopAllCoroutines();
+            Debug.Log("Theme");
+        }
+        else if (value == "questionsPanel")
+        {
+            StartCoroutine(AttentionPanel(attentionWindowTheme));
+        }
+            
+
+    }
+
+    IEnumerator AttentionPanel(GameObject activeObject)
+    {
+        activeObject.SetActive(true);
+        Debug.Log("1");
+        yield return new WaitForSeconds(2f);
+        Debug.Log("2");
+        activeObject.SetActive(false);
+        StopAllCoroutines();
     }
     IEnumerator FirstLoad()
     {
@@ -106,15 +150,15 @@ public class UIManager : MonoBehaviour
     
     private void LoadFirstText()
     {
-        
-        using (StreamReader sr = new StreamReader(@"D:\Work\Alcopoly\Assets\Resources\advice.txt", System.Text.Encoding.Default))
+        // D:\Work\Alcopoly-main
+        using (StreamReader sr = new StreamReader(@"D:\Work\Alcopoly-main\Assets\Resources\advice.txt", System.Text.Encoding.Default))
         {
             string line;
             while ((line = sr.ReadLine()) != null)
             {
                 Console.WriteLine(line);
                 firstListLoad.Add(line);
-                Debug.Log(line);
+                
 
             }
         }

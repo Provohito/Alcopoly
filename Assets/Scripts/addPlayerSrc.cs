@@ -13,15 +13,6 @@ public class addPlayerSrc : MonoBehaviour
     [SerializeField]
     private GameObject gridlayer;
 
-    
-
-    
-
-
-   
-
-    
-    
     private Text _namePlayer;
     //private int count = 0;
     public Text namePlayer
