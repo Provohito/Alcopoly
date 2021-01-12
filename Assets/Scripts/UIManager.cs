@@ -39,16 +39,13 @@ public class UIManager : MonoBehaviour
     public void Start()
     {
         LoadFirstText();
-        
+        StartCoroutine("FirstLoad");
 
     }
 
     void Update()
     {
-        if (Input.GetKeyDown("d"))
-        {
-            StartCoroutine("FirstLoad");
-        }
+        
         if (_nameUI != null)
         {
             NextLevel(_nameUI);
@@ -64,7 +61,7 @@ public class UIManager : MonoBehaviour
             {
                 GameObject Namelevel = GameObject.Find("[Interface]/CanvasRoot/alertPanel");
                 simpleVariable = Namelevel.name;
-                Debug.Log(simpleVariable);
+                
                 Namelevel.SetActive(true);
                 Namelevel = GameObject.Find("[Interface]/CanvasRoot/loadPanel");
                 Namelevel.SetActive(false);
@@ -75,8 +72,7 @@ public class UIManager : MonoBehaviour
 
     void NextLevel(string name)
     {
-        Debug.Log(simpleVariable + " Прошлая");
-        Debug.Log(name + " настоящая");
+        
         GameObject Namelevel = GameObject.Find("[Interface]/CanvasRoot/" + simpleVariable);
         Namelevel.SetActive(false);
         Namelevel = GameObject.Find("[Interface]/CanvasRoot/"+ name );
@@ -130,12 +126,13 @@ public class UIManager : MonoBehaviour
         nameTheme = value;
         using (StreamReader sr = new StreamReader(path + value + ".txt", System.Text.Encoding.Default))
         {
+            
             string line;
             while ((line = sr.ReadLine()) != null)
             {
                 Console.WriteLine(line);
                 questions.Add(line);
-                Debug.Log(line);
+                
 
             }
         }
@@ -144,9 +141,9 @@ public class UIManager : MonoBehaviour
 
     public void wqe()
     {
-        for (int i = 0; i < namePlayer.Count; i++)
+        for (int i = 0; i < questions.Count; i++)
         {
-            Debug.Log(namePlayer[i]);
+            Debug.Log(questions[i]);
         }
     }   
     public void ClearList()

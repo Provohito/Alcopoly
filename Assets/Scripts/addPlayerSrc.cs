@@ -54,7 +54,7 @@ public class addPlayerSrc : MonoBehaviour
 
     void AddNewPlayer()
     {
-        Debug.Log(_namePlayer.text);
+        
         GameObject ui = GameObject.Find("UIManager");
         textprefab.text = _namePlayer.text;
         var table = Instantiate(namePrefabBtn);
