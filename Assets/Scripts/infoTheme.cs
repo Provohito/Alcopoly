@@ -15,6 +15,7 @@ public class infoTheme : MonoBehaviour
     
     Text nameTheme;
     private GameObject ui;
+    bool isTurned;
     
 
     public void Start()
@@ -29,12 +30,24 @@ public class infoTheme : MonoBehaviour
     }
     public void ChooseTheme()
     {
-        highlightedColor.a = 1;
-        colorImage.GetComponent<Image>().color = highlightedColor; 
+        if (isTurned == false)
+        {
+            highlightedColor.a = 1;
+            colorImage.GetComponent<Image>().color = highlightedColor;
 
-        nameTheme = this.gameObject.transform.Find("nameTheme").gameObject.GetComponent<Text>();
+            nameTheme = this.gameObject.transform.Find("nameTheme").gameObject.GetComponent<Text>();
 
-        ui.GetComponent<UIManager>().WriteText(nameTheme.text);
+            ui.GetComponent<UIManager>().WriteText(nameTheme.text);
+            isTurned = true;
+        }
+        else
+        {
+            ui.GetComponent<UIManager>().ClearList();
+            ResetTopicColor();
+            isTurned = false;
+        }
+
+        
 
     }
     // File.AppendText(@"D:\Work\Alcopoly\Assets\Resources\sendNotes.txt"
