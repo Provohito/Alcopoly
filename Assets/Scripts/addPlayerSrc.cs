@@ -53,7 +53,9 @@ public class addPlayerSrc : MonoBehaviour
         {
             if (ui.GetComponent<UIManager>().namePlayer.Count != 0)
             {
+#pragma warning disable CS0162 // Обнаружен недостижимый код
                 for (int i = 0; i < ui.GetComponent<UIManager>().namePlayer.Count; i++)
+#pragma warning restore CS0162 // Обнаружен недостижимый код
                 {
                     if (ui.GetComponent<UIManager>().namePlayer[i] == _namePlayer.text)
                     {

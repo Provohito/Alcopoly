@@ -14,19 +14,47 @@ public class infoTheme : MonoBehaviour
     
     
     Text nameTheme;
+    private GameObject ui;
+    bool isTurned;
+    
 
+    public void Start()
+    {
+        
+        
+        ui = GameObject.Find("UIManager");
+    }
+    public void Update()
+    {
+        
+    }
     public void ChooseTheme()
     {
-        highlightedColor.a = 1;
-        colorImage.GetComponent<Image>().color = highlightedColor;
+        if (isTurned == false)
+        {
+            highlightedColor.a = 1;
+            colorImage.GetComponent<Image>().color = highlightedColor;
+
+            nameTheme = this.gameObject.transform.Find("nameTheme").gameObject.GetComponent<Text>();
+
+            ui.GetComponent<UIManager>().WriteText(nameTheme.text);
+            isTurned = true;
+        }
+        else
+        {
+            ui.GetComponent<UIManager>().ClearList();
+            ResetTopicColor();
+            isTurned = false;
+        }
+
         
-        GameObject ui = GameObject.Find("UIManager");
-
-        nameTheme = this.gameObject.transform.Find("nameTheme").gameObject.GetComponent<Text>();
-
-        ui.GetComponent<UIManager>().WriteText(nameTheme.text);
 
     }
     // File.AppendText(@"D:\Work\Alcopoly\Assets\Resources\sendNotes.txt"
+    public void ResetTopicColor()
+    {
+        colorImage.GetComponent<Image>().color = Color.white;
+    }
+
 
 }
