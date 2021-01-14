@@ -24,14 +24,19 @@ public class sendMessageSrc : MonoBehaviour
         GameObject ui = GameObject.Find("UIManager");
         if (namePlayer.text != "" & emailPlayer.text!= "" & messagePlayer.text != "")
         {
-            /*string s = "Name: " + namePlayer.text + "\n" + "Email: " + emailPlayer.text + "\n" + "Message: " + messagePlayer.text + "\n" + "Текущее время: " + DateTime.Now + "\n";
-
-            using (StreamWriter sw = File.AppendText(@"D:\Work\Alcopoly\Assets\Resources\sendNotes.txt"))
-            {
-                sw.WriteLine(s);
-            }
             
-            ui.GetComponent<UIManager>().nameUI = "addPlayerPanel";*/
+            string s = "Name: " + namePlayer.text + "\n" + "Email: " + emailPlayer.text + "\n" + "Message: " + messagePlayer.text + "\n" + "Текущее время: " + DateTime.Now + "\n";
+
+            string path = "Assets/Resources/messages.txt";
+
+            //Write some text to the test.txt file
+            StreamWriter writer = new StreamWriter(path, true);
+            writer.WriteLine(s);
+            writer.Close();
+
+            
+            
+            ui.GetComponent<UIManager>().nameUI = "addPlayerPanel";
             // отправка не мменяет сцену из-за simple///
         }
         else
