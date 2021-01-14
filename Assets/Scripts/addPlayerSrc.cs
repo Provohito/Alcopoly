@@ -13,6 +13,9 @@ public class addPlayerSrc : MonoBehaviour
     [SerializeField]
     private GameObject gridlayer;
 
+    [SerializeField]
+    private InputField addTable;
+
     private Text _namePlayer;
     //private int count = 0;
     public Text namePlayer
@@ -53,26 +56,35 @@ public class addPlayerSrc : MonoBehaviour
         {
             if (ui.GetComponent<UIManager>().namePlayer.Count != 0)
             {
+                int count = 0;
 #pragma warning disable CS0162 // Обнаружен недостижимый код
                 for (int i = 0; i < ui.GetComponent<UIManager>().namePlayer.Count; i++)
 #pragma warning restore CS0162 // Обнаружен недостижимый код
                 {
                     if (ui.GetComponent<UIManager>().namePlayer[i] == _namePlayer.text)
                     {
-                        return;
+                        count += 1;
                     }
-                    else
-                    {
-                        table.transform.SetParent(gridlayer.transform, false);
-                        ui.GetComponent<UIManager>().SetValueStruct(textprefab.text);
-                        return;
-                    }
+                }
+                if (count > 0)
+                {
+                    Debug.Log(ui.GetComponent<UIManager>().namePlayer.Count);
+                    addTable.text = "";
+                    return;
+                }
+                else
+                {
+                    table.transform.SetParent(gridlayer.transform, false);
+                    ui.GetComponent<UIManager>().SetValueStruct(textprefab.text);
+                    addTable.text = "";
+                    return;
                 }
             }
             else
             {
                 table.transform.SetParent(gridlayer.transform, false);
                 ui.GetComponent<UIManager>().SetValueStruct(textprefab.text);
+                addTable.text = "";
             }
             
         }
