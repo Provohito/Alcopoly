@@ -11,6 +11,9 @@ public class changeQuestionsSrc : MonoBehaviour
     private Text namePlayerText;
     int count = 0;
     List<string> simpleList = new List<string>();
+
+    [SerializeField]
+    private ParticleSystem effects;
     
     //ui.GetComponent<UIManager>().WriteText(nameTheme.text);
     List<string> questionsTheme = new List<string>();
@@ -20,9 +23,13 @@ public class changeQuestionsSrc : MonoBehaviour
         questionsTheme = ui.GetComponent<UIManager>().questions;
         simpleList = ui.GetComponent<UIManager>().namePlayer;
         ChangeQuestion();
+        
     }
 
-    
+    public void Click_button()
+    {
+        effects.Play();
+    }
     public void ChangeQuestion()
     {
         GameObject ui = GameObject.Find("UIManager");
