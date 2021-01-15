@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     [HideInInspector]
     public List<string> namePlayer = new List<string>();
     [SerializeField]
-    private Image fillground;
+    private Scrollbar scrollbar;
     private string _nameUI;
 
     
@@ -170,11 +170,12 @@ public class UIManager : MonoBehaviour
     }
     IEnumerator FirstLoad()
     {
-        for (float ft = fillground.fillAmount; ft <= 1; ft += 0.0025f)
+        yield return new WaitForSeconds(3f);
+        for (float ft = scrollbar.size; ft <= 1; ft += 0.0025f)
         {
-            fillground.fillAmount += ft;
-            yield return new WaitForSeconds(.1f);
-            if(fillground.fillAmount == 1)
+            scrollbar.size += ft;
+            yield return new WaitForSeconds(.05f);
+            if(scrollbar.size == 1)
             {
                 GameObject Namelevel = GameObject.Find("[Interface]/CanvasRoot/alertPanel");
                 simpleVariable = Namelevel.name;
