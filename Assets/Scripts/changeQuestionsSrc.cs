@@ -39,12 +39,23 @@ public class changeQuestionsSrc : MonoBehaviour
             ui.GetComponent<UIManager>().nameUI = "endQuestions";
             count = 0;
         }
-
         namePlayerText.text = simpleList[Random.Range(0, simpleList.Count)];
-
         centerPanel.text = questionsTheme[count];
-        centerPanel.text = centerPanel.text.Replace("{Player}", namePlayerText.text);
-        count += 1;
+        if (centerPanel.text.Contains("{Player}"))
+        {
+            
+            centerPanel.text = centerPanel.text.Replace("{Player}", namePlayerText.text);
+            count += 1;
+        }
+        else
+        {
+           
+            namePlayerText.text = "";
+            count += 1;
+        }
+        
+
+        
         
     }
 }
