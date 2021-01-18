@@ -10,13 +10,15 @@ public class infoTheme : MonoBehaviour
 {
     
     public GameObject colorImage;
-    public Color highlightedColor;
+    
     
     
     Text nameTheme;
     private GameObject ui;
     bool isTurned;
-    
+
+    [SerializeField]
+    private GameObject setChoose;
 
     public void Start()
     {
@@ -30,11 +32,14 @@ public class infoTheme : MonoBehaviour
     }
     public void ChooseTheme()
     {
+        
+        if (setChoose.activeSelf == false)
+        {
+            isTurned = false;
+        }
         if (isTurned == false)
         {
-            highlightedColor.a = 1;
-            colorImage.GetComponent<Image>().color = highlightedColor;
-
+            setChoose.SetActive(true);
             nameTheme = this.gameObject.transform.Find("nameTheme").gameObject.GetComponent<Text>();
 
             ui.GetComponent<UIManager>().WriteText(nameTheme.text);
@@ -42,6 +47,7 @@ public class infoTheme : MonoBehaviour
         }
         else
         {
+            setChoose.SetActive(false);
             ui.GetComponent<UIManager>().ClearList();
             ResetTopicColor();
             isTurned = false;
@@ -50,10 +56,11 @@ public class infoTheme : MonoBehaviour
         
 
     }
-    // File.AppendText(@"D:\Work\Alcopoly\Assets\Resources\sendNotes.txt"
+
     public void ResetTopicColor()
     {
-        colorImage.GetComponent<Image>().color = Color.white;
+        
+        setChoose.SetActive(false);
     }
 
 

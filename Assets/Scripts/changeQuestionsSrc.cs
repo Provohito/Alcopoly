@@ -13,10 +13,7 @@ public class changeQuestionsSrc : MonoBehaviour
     List<string> simpleList = new List<string>();
 
     
-    public void Ckicking(ParticleSystem value)
-    {
-        value.Play();
-    }
+    
 
     //ui.GetComponent<UIManager>().WriteText(nameTheme.text);
     List<string> questionsTheme = new List<string>();
@@ -40,7 +37,8 @@ public class changeQuestionsSrc : MonoBehaviour
             count = 0;
         }
         namePlayerText.text = simpleList[Random.Range(0, simpleList.Count)];
-        centerPanel.text = questionsTheme[count];
+        centerPanel.text = questionsTheme[Random.Range(0, questionsTheme.Count)];
+        
         if (centerPanel.text.Contains("{Player}"))
         {
             

@@ -112,7 +112,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private GameObject chooseThemePanel;
-    
+
+    [SerializeField]
+    private GameObject attentionWindowCompletedMessage;
     
     
 
@@ -124,7 +126,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-
+        scrollbar.value = 0;
         if (_nameUI != null)
         {
             NextLevel(_nameUI);
@@ -137,7 +139,7 @@ public class UIManager : MonoBehaviour
         {
             nameUI = value;
             StopAllCoroutines();
-            Debug.Log("questions");
+            
         }
         else if (value == "chooseTheme")
         {
@@ -149,13 +151,16 @@ public class UIManager : MonoBehaviour
         {
             nameUI = value;
             StopAllCoroutines();
-            Debug.Log("Theme");
+            
         }
         else if (value == "questionsPanel")
         {
             StartCoroutine(AttentionPanel(attentionWindowTheme));
         }
-            
+        if (value == "addPlayerPanel")
+        {
+            StartCoroutine(AttentionPanel(attentionWindowCompletedMessage));
+        }  
 
     }
 
@@ -170,6 +175,7 @@ public class UIManager : MonoBehaviour
     }
     IEnumerator FirstLoad()
     {
+         
         yield return new WaitForSeconds(3f);
         for (float ft = scrollbar.size; ft <= 1; ft += 0.0025f)
         {
@@ -263,16 +269,13 @@ public class UIManager : MonoBehaviour
     public void ClearList()
     {
         questions.RemoveRange(0, questions.Count);
-       
-        
-       
-        chooseThemePanel.GetComponent<chooseThemeSrc>().isReset = true;
-        
-        
-        
+        chooseThemePanel.GetComponent<chooseThemeSrc>().isReset = true;   
     }
 
-    
+    public void Ckicking(ParticleSystem value)
+    {
+        value.Play();
+    }
 }
 
 

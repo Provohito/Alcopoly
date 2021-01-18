@@ -68,7 +68,6 @@ public class addPlayerSrc : MonoBehaviour
                 }
                 if (count > 0)
                 {
-                    Debug.Log(ui.GetComponent<UIManager>().namePlayer.Count);
                     addTable.text = "";
                     return;
                 }
