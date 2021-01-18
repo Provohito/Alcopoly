@@ -579,6 +579,18 @@ MonoBehaviour:
           m_StringArgument: chooseTheme
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: Ckicking
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4407919635423817262}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2678154288051149353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,7 +1111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2678154288846944504
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1292,8 +1304,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -41.6, y: 0.00083351}
-  m_SizeDelta: {x: 555.6728, y: 99.99583}
+  m_AnchoredPosition: {x: -35.9, y: 0.00083351}
+  m_SizeDelta: {x: 567.02496, y: 99.99583}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2678154288885181043
 CanvasRenderer:
@@ -1324,7 +1336,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0e85aa911b42a724abe93aadd95c4941, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
