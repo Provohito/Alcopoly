@@ -40,14 +40,14 @@ public class sendMessageSrc : MonoBehaviour
         if ((namePlayer.text != "" & emailPlayer.text!= "" & messagePlayer.text != "") & (namePlayer.text != "Ваше имя" & emailPlayer.text != "Ваша почта" & messagePlayer.text != "Сообщение"))
         {
             
-            string s = "Name: " + namePlayer.text + "\n" + "Email: " + emailPlayer.text + "\n" + "Message: " + messagePlayer.text + "\n" + "Текущее время: " + DateTime.Now + "\n";
+            /*string s = "Name: " + namePlayer.text + "\n" + "Email: " + emailPlayer.text + "\n" + "Message: " + messagePlayer.text + "\n" + "Текущее время: " + DateTime.Now + "\n";
 
             string path = "Assets/Resources/messages.txt";
 
             //Write some text to the test.txt file
             StreamWriter writer = new StreamWriter(path, true);
             writer.WriteLine(s);
-            writer.Close();
+            writer.Close();*/
             
             ui.GetComponent<UIManager>().nameUI = "addPlayerPanel";
             

@@ -20,8 +20,8 @@ public class UIManager : MonoBehaviour
     private string _nameUI;
     bool attantionCount;
 
-    string path1 = "Assets/Resources/18+.txt";
-    string path2 = "Assets/Resources/Первоя пошла.txt";
+    string path1 = "Text/18+";
+    string path2 = "Text/Первоя пошла";
 
     public string nameUI
     {
@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour
     string nameTheme;
     List<string> theme1 = new List<string>();
     List<string> theme2 = new List<string>();
+    
 
     [SerializeField]
     private GameObject attentionWindowQuestions;
@@ -63,8 +64,8 @@ public class UIManager : MonoBehaviour
     {
         LoadFirstText();
         StartCoroutine(FirstLoad());
-        LoadThemeText(theme1, path1);
-        LoadThemeText(theme2, path2);
+        LoadThemes(theme1, path1);
+        LoadThemes(theme2, path2);
 
     }
 
@@ -142,17 +143,8 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-    void LoadThemeText(List<string> value, string path)
-    {
-        using (StreamReader sr = new StreamReader(path, System.Text.Encoding.Default))
-        {
-            string line;
-            while ((line = sr.ReadLine()) != null)
-            {         
-                value.Add(line);
-            }
-        }
-    }
+    
+    
     void NextLevel(string name)
     {
         
@@ -186,16 +178,22 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-    
+    private void LoadThemes(List<string> valueList, string valuePath)
+    {
+        var textFile = Resources.Load(valuePath) as TextAsset;
+        string[] s = textFile.text.Split(';');
+        foreach (var item in s)
+        {
+            valueList.Add(item);
+        }
+    }
     private void LoadFirstText()
     {
-        using (StreamReader sr = new StreamReader("Assets/Resources/FirstLoad.txt", System.Text.Encoding.Default))
+        var textFile = Resources.Load("Text/FirstLoad") as TextAsset;
+        string[] s = textFile.text.Split(';');
+        foreach (var item in s)
         {
-            string line;
-            while ((line = sr.ReadLine()) != null)
-            {
-                firstListLoad.Add(line);
-            }
+            firstListLoad.Add(item);
         }
         firstLoadText.text = firstListLoad[UnityEngine.Random.Range(0, firstListLoad.Count)];
     }
