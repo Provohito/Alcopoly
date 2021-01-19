@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Scrollbar scrollbar;
     private string _nameUI;
-
+    bool attantionCount;
     
     public string nameUI
     {
@@ -135,7 +135,7 @@ public class UIManager : MonoBehaviour
     }
     public void CheckFubction(string value)
     {
-        if (namePlayer.Count != 0 & value == "chooseTheme")
+        if (namePlayer.Count != 0 & value == "chooseTheme" & attantionCount == false)
         {
             nameUI = value;
             StopAllCoroutines();
@@ -143,11 +143,13 @@ public class UIManager : MonoBehaviour
         }
         else if (value == "chooseTheme")
         {
+            attantionCount = true;
             StartCoroutine(AttentionPanel(attentionWindowQuestions));
+            
         }
             
 
-        if (questions.Count != 0 & value == "questionsPanel")
+        if (questions.Count != 0 & value == "questionsPanel" & attantionCount == false)
         {
             nameUI = value;
             StopAllCoroutines();
@@ -155,7 +157,9 @@ public class UIManager : MonoBehaviour
         }
         else if (value == "questionsPanel")
         {
+            attantionCount = true;
             StartCoroutine(AttentionPanel(attentionWindowTheme));
+            
         }
         if (value == "addPlayerPanel")
         {
@@ -171,6 +175,7 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         activeObject.SetActive(false);
+        attantionCount = false;
         StopAllCoroutines();
     }
     IEnumerator FirstLoad()
