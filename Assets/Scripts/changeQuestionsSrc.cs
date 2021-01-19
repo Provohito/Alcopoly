@@ -9,7 +9,7 @@ public class changeQuestionsSrc : MonoBehaviour
     private Text centerPanel;
     [SerializeField]
     private Text namePlayerText;
-    int count = 0;
+    public int count = 0;
     List<string> simpleList = new List<string>();
 
     
@@ -25,8 +25,30 @@ public class changeQuestionsSrc : MonoBehaviour
         ChangeQuestion();
         
     }
+    void Update()
+    {
+        Debug.Log(questionsTheme.Count);
+    }
+    public void BackBtn()
+    {
+        count = 0;
+        namePlayerText.text = simpleList[Random.Range(0, simpleList.Count)];
+        centerPanel.text = questionsTheme[Random.Range(0, questionsTheme.Count)];
 
-    
+        if (centerPanel.text.Contains("{Player}"))
+        {
+
+            centerPanel.text = centerPanel.text.Replace("{Player}", namePlayerText.text);
+            count += 1;
+        }
+        else
+        {
+
+            namePlayerText.text = "";
+            count += 1;
+        }
+    }
+
     public void ChangeQuestion()
     {
         GameObject ui = GameObject.Find("UIManager");

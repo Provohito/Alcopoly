@@ -44,10 +44,11 @@ public class sendMessageSrc : MonoBehaviour
 
             string path = "Assets/Resources/messages.txt";
 
-            //Write some text to the test.txt file
+            var textFile = Resources.Load("Text/messages") as TextAsset;
             StreamWriter writer = new StreamWriter(path, true);
             writer.WriteLine(s);
             writer.Close();*/
+            
             
             ui.GetComponent<UIManager>().nameUI = "addPlayerPanel";
             
