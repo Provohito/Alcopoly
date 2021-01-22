@@ -27,7 +27,7 @@ public class changeQuestionsSrc : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(questionsTheme.Count);
+        
     }
     public void BackBtn()
     {
@@ -58,9 +58,10 @@ public class changeQuestionsSrc : MonoBehaviour
             ui.GetComponent<UIManager>().nameUI = "endQuestions";
             count = 0;
         }
+        
         namePlayerText.text = simpleList[Random.Range(0, simpleList.Count)];
         centerPanel.text = questionsTheme[Random.Range(0, questionsTheme.Count)];
-        
+        questionsTheme.Remove(centerPanel.text);
         if (centerPanel.text.Contains("{Player}"))
         {
             
